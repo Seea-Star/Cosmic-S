@@ -28,52 +28,58 @@
       padding: 20px;
     }
 
+    /* Finestretta nera principale (stile box-dark della home) */
     .splash-card {
-      max-width: 400px;
+      max-width: 420px;
       width: 100%;
-      background: #ffffff;
+      background: #111111;
       border: 3px solid #111111;
       border-radius: 32px;
-      padding: 35px 25px;
+      padding: 40px 30px;
       box-shadow: 6px 6px 0px #111111;
       text-align: center;
       display: flex;
       flex-direction: column;
-      gap: 24px;
+      gap: 30px;
     }
 
+    /* Scritta bianca con la sfumatura luminosa (stile top-banner della home) */
     .splash-title {
-      font-size: 3rem;
+      font-size: 3.2rem;
       font-weight: 800;
       letter-spacing: 3px;
-      color: #111;
-      text-shadow: 2px 2px 0px #e1e1e6;
+      color: #ffffff;
+      line-height: 1;
+      text-shadow: 0 0 10px rgba(255,255,255,0.9), 0 0 20px rgba(255,255,255,0.6);
     }
 
+    /* Pulsante bianco che brilla */
     .enter-btn {
       display: block;
       width: 100%;
-      background: #111111;
-      color: #ffffff;
+      background: #ffffff;
+      color: #111111;
       border: 3px solid #111111;
       border-radius: 20px;
-      padding: 14px;
-      font-size: 1rem;
+      padding: 15px;
+      font-size: 1.1rem;
       font-weight: 800;
       text-decoration: none;
       box-shadow: 4px 4px 0px #444444;
-      transition: all 0.1s ease;
+      /* Effetto bagliore/brillio attorno al pulsante bianco */
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.8), 4px 4px 0px #333333;
+      transition: all 0.15s ease;
       cursor: pointer;
     }
 
     .enter-btn:hover {
-      background: #ffffff;
-      color: #111111;
+      background: #f0f0f3;
+      box-shadow: 0 0 25px rgba(255, 255, 255, 1), 4px 4px 0px #333333;
     }
 
     .enter-btn:active {
       transform: translate(2px, 2px);
-      box-shadow: 2px 2px 0px #111111;
+      box-shadow: 0 0 5px rgba(255, 255, 255, 0.5), 2px 2px 0px #333333;
     }
   </style>
 </head>
@@ -83,7 +89,7 @@
     <h1 class="splash-title">COSMIC-S</h1>
     
     <!-- Sostituisci il link qui sotto con l'URL GitHub Pages del repository della tua Home -->
-    <a href="https://tuonome.github.io/home-repository/" class="enter-btn">ENTRA →</a>
+    <a href="https://tuonome.github.io/home-repository/" class="enter-btn">ENTER →</a>
   </div>
 
 </body>
