@@ -32,8 +32,8 @@
     /* Struttura principale con dimensioni fisse */
     .scene-wrapper {
       position: relative;
-      width: 480px;
-      height: 340px;
+      width: 520px;
+      height: 380px;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -49,6 +49,28 @@
       box-shadow: none;
     }
 
+    /* Stile comune per i 10 timbri/sticker */
+    .stamp-sticker {
+      position: absolute;
+      width: 65px;
+      height: auto;
+      z-index: 3;
+      pointer-events: none;
+      filter: drop-shadow(2px 2px 3px rgba(0,0,0,0.25));
+    }
+
+    /* Posizioni e rotazioni uniche per tutti i 10 timbri */
+    .stamp-1 { top: 15px; left: 20px; transform: rotate(-12deg); }
+    .stamp-2 { top: 8px; right: 25px; transform: rotate(14deg); }
+    .stamp-3 { bottom: 15px; left: 15px; transform: rotate(8deg); }
+    .stamp-4 { bottom: 10px; right: 20px; transform: rotate(-15deg); }
+    .stamp-5 { top: 45px; left: -10px; transform: rotate(-6deg); }
+    .stamp-6 { top: 50px; right: -10px; transform: rotate(9deg); }
+    .stamp-7 { bottom: 55px; left: -5px; transform: rotate(12deg); }
+    .stamp-8 { bottom: 50px; right: -5px; transform: rotate(-10deg); }
+    .stamp-9 { top: -5px; left: 140px; transform: rotate(5deg); }
+    .stamp-10 { bottom: -5px; right: 150px; transform: rotate(-8deg); }
+
     /* Box nero centrale senza alcuna ombra */
     .splash-card {
       position: absolute;
@@ -59,7 +81,7 @@
       border: 3px solid #111111;
       border-radius: 28px;
       padding: 30px 20px;
-      box-shadow: none; /* Ombra rimossa completamente */
+      box-shadow: none;
       text-align: center;
       display: flex;
       flex-direction: column;
@@ -115,8 +137,22 @@
 <body>
 
   <div class="scene-wrapper">
+    <!-- Immagine del quaderno -->
     <img src="./notebook-spread.png" alt="Notebook Background" class="notebook-bg">
 
+    <!-- I 10 timbri disposti attorno al box -->
+    <img src="./stamp-1.png" alt="Stamp 1" class="stamp-sticker stamp-1">
+    <img src="./stamp-2.png" alt="Stamp 2" class="stamp-sticker stamp-2">
+    <img src="./stamp-3.png" alt="Stamp 3" class="stamp-sticker stamp-3">
+    <img src="./stamp-4.png" alt="Stamp 4" class="stamp-sticker stamp-4">
+    <img src="./stamp-5.png" alt="Stamp 5" class="stamp-sticker stamp-5">
+    <img src="./stamp-6.png" alt="Stamp 6" class="stamp-sticker stamp-6">
+    <img src="./stamp-7.png" alt="Stamp 7" class="stamp-sticker stamp-7">
+    <img src="./stamp-8.png" alt="Stamp 8" class="stamp-sticker stamp-8">
+    <img src="./stamp-9.png" alt="Stamp 9" class="stamp-sticker stamp-9">
+    <img src="./stamp-10.png" alt="Stamp 10" class="stamp-sticker stamp-10">
+
+    <!-- Box nero centrale senza ombre -->
     <div class="splash-card">
       <h1 class="splash-title">COSMIC-S</h1>
       <a href="https://seea-star.github.io/Cosmic-S-Home/" class="enter-btn">ENTER →</a>
@@ -125,4 +161,3 @@
 
 </body>
 </html>
-
