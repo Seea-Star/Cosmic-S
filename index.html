@@ -31,8 +31,8 @@
 
     .scene-wrapper {
       position: relative;
-      width: 540px;
-      height: 400px;
+      width: 580px;
+      height: 420px;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -47,7 +47,6 @@
       box-shadow: none;
     }
 
-    /* Stile base comune */
     .stamp-sticker {
       position: absolute;
       height: auto;
@@ -56,22 +55,26 @@
       filter: drop-shadow(2px 2px 3px rgba(0,0,0,0.25));
     }
 
-    /* Dimensioni variegate (piccoli, medi, grandi) e posizioni */
-    .stamp-1  { width: 65px; top: 10px; left: 15px; transform: rotate(-14deg); }
-    .stamp-2  { width: 52px; top: 5px; right: 20px; transform: rotate(16deg); }
-    .stamp-3  { width: 70px; bottom: 10px; left: 10px; transform: rotate(10deg); }
-    .stamp-4  { width: 58px; bottom: 5px; right: 15px; transform: rotate(-18deg); }
-    .stamp-5  { width: 50px; top: 40px; left: -12px; transform: rotate(-8deg); }
-    .stamp-6  { width: 68px; top: 45px; right: -12px; transform: rotate(12deg); }
-    .stamp-7  { width: 55px; bottom: 50px; left: -8px; transform: rotate(15deg); }
-    .stamp-8  { width: 62px; bottom: 45px; right: -8px; transform: rotate(-12deg); }
-    .stamp-9  { width: 53px; top: -8px; left: 130px; transform: rotate(6deg); }
-    .stamp-10 { width: 66px; bottom: -8px; right: 140px; transform: rotate(-10deg); }
-    .stamp-11 { width: 57px; top: 5px; left: 230px; transform: rotate(4deg); }
-    .stamp-12 { width: 72px; bottom: 8px; left: 110px; transform: rotate(-14deg); }
-    .stamp-13 { width: 52px; top: 120px; left: -15px; transform: rotate(20deg); }
-    .stamp-14 { width: 60px; top: 130px; right: -15px; transform: rotate(-16deg); }
-    .stamp-15 { width: 55px; top: -6px; right: 220px; transform: rotate(-5deg); }
+    /* Distribuzione bilanciata su tutti e 4 i lati, con dimensioni miste e pochissima sovrapposizione */
+    .stamp-1  { width: 55px; top: 35px; left: 45px; transform: rotate(-12deg); }
+    .stamp-2  { width: 62px; top: 30px; left: 160px; transform: rotate(8deg); }
+    .stamp-3  { width: 50px; top: 35px; right: 50px; transform: rotate(14deg); }
+    
+    .stamp-4  { width: 65px; top: 155px; left: 25px; transform: rotate(18deg); }
+    .stamp-5  { width: 52px; top: 120px; right: 25px; transform: rotate(-15deg); }
+    
+    .stamp-6  { width: 58px; bottom: 40px; left: 40px; transform: rotate(-8deg); }
+    .stamp-7  { width: 48px; bottom: 45px; left: 150px; transform: rotate(12deg); }
+    .stamp-8  { width: 60px; bottom: 40px; right: 45px; transform: rotate(-10deg); }
+
+    .stamp-9  { width: 54px; top: 75px; left: 15px; transform: rotate(5deg); }
+    .stamp-10 { width: 58px; top: 80px; right: 15px; transform: rotate(-6deg); }
+    .stamp-11 { width: 50px; bottom: 85px; left: 20px; transform: rotate(-14deg); }
+    .stamp-12 { width: 56px; bottom: 80px; right: 20px; transform: rotate(16deg); }
+
+    .stamp-13 { width: 62px; top: 5px; left: 260px; transform: rotate(-4deg); }
+    .stamp-14 { width: 48px; bottom: 10px; left: 250px; transform: rotate(7deg); }
+    .stamp-15 { width: 55px; top: 180px; right: 15px; transform: rotate(-11deg); }
 
     .splash-card {
       position: absolute;
