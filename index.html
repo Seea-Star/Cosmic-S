@@ -28,7 +28,6 @@
       padding: 20px;
     }
 
-    /* Contenitore generale che racchiude il quaderno e il box sopra */
     .splash-container {
       position: relative;
       display: flex;
@@ -38,10 +37,9 @@
       width: 100%;
     }
 
-    /* Immagine del quaderno aperta sotto, più grande del box nero */
     .notebook-bg {
       position: absolute;
-      width: 130%;
+      width: 140%;
       max-width: 750px;
       height: auto;
       z-index: 1;
@@ -49,7 +47,6 @@
       pointer-events: none;
     }
 
-    /* Box principale con la GIF come sfondo (sta sopra al quaderno) */
     .splash-card {
       max-width: 420px;
       width: 100%;
@@ -68,7 +65,6 @@
       z-index: 2;
     }
 
-    /* Sfumatura scura trasparente sopra la GIF per leggibilità */
     .splash-card::before {
       content: '';
       position: absolute;
@@ -82,7 +78,6 @@
       z-index: 2;
     }
 
-    /* Scritta bianca con la sfumatura luminosa */
     .splash-title {
       font-size: 3.2rem;
       font-weight: 800;
@@ -92,7 +87,6 @@
       text-shadow: 0 0 10px rgba(255,255,255,0.9), 0 0 20px rgba(255,255,255,0.6);
     }
 
-    /* Pulsante bianco senza bordo e con l'aura luminosa */
     .enter-btn {
       display: block;
       width: 100%;
@@ -117,6 +111,21 @@
     .enter-btn:active {
       transform: translate(2px, 2px);
       box-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+    }
+
+    /* Adattamenti per la modalità telefono */
+    @media (max-width: 600px) {
+      .notebook-bg {
+        width: 160%;
+        max-width: none;
+      }
+      .splash-card {
+        padding: 35px 20px;
+        gap: 25px;
+      }
+      .splash-title {
+        font-size: 2.4rem;
+      }
     }
   </style>
 </head>
