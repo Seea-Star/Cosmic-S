@@ -29,41 +29,44 @@
       overflow-x: hidden;
     }
 
-    /* Struttura principale centrata che fa da "scrivania" */
+    /* Struttura principale con dimensioni fisse per evitare differenze tra browser */
     .scene-wrapper {
       position: relative;
-      display: inline-block;
-      max-width: 600px;
-      width: 100%;
+      width: 480px;
+      height: 340px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
 
-    /* Il quaderno ora è l'elemento base che dà le dimensioni giuste */
+    /* Immagine del quaderno a dimensioni fisse, senza ombra */
     .notebook-bg {
-      display: block;
+      position: absolute;
       width: 100%;
-      height: auto;
-      filter: drop-shadow(4px 4px 10px rgba(0,0,0,0.15));
+      height: 100%;
+      object-fit: contain;
+      filter: none;
+      box-shadow: none;
     }
 
-    /* Box nero posizionato esattamente al centro sopra il quaderno */
+    /* Box nero centrale con dimensioni fisse e la sua ombra originale */
     .splash-card {
       position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 75%;
-      max-width: 380px;
+      width: 320px;
+      height: 220px;
       background: #111111 url('./4e432360601c9df1cab3274448a0fa56.gif') no-repeat center center;
       background-size: cover;
       border: 3px solid #111111;
       border-radius: 28px;
-      padding: 40px 20px;
+      padding: 30px 20px;
       box-shadow: 6px 6px 0px #111111;
       text-align: center;
       display: flex;
       flex-direction: column;
-      gap: 30px;
+      justify-content: center;
+      gap: 25px;
       overflow: hidden;
+      z-index: 2;
     }
 
     .splash-card::before {
@@ -80,7 +83,7 @@
     }
 
     .splash-title {
-      font-size: 2.6rem;
+      font-size: 2.4rem;
       font-weight: 800;
       letter-spacing: 2px;
       color: #ffffff;
@@ -95,7 +98,7 @@
       color: #111111;
       border: none;
       border-radius: 16px;
-      padding: 14px;
+      padding: 12px;
       font-size: 1rem;
       font-weight: 800;
       text-decoration: none;
@@ -107,18 +110,13 @@
     .enter-btn:hover {
       background: #f0f0f3;
     }
-
-    /* Per quanto riguarda i timbri futuri (stamp-1.png, stamp-2.png ecc.) 
-       li potrai aggiungere qui dentro con position: absolute dandogli coordinate percentuali (es. top: 20%; left: 10%;) */
   </style>
 </head>
 <body>
 
   <div class="scene-wrapper">
-    <!-- Immagine del quaderno aperta -->
     <img src="./notebook-spread.png" alt="Notebook Background" class="notebook-bg">
 
-    <!-- Box nero centrale sovrapposto -->
     <div class="splash-card">
       <h1 class="splash-title">COSMIC-S</h1>
       <a href="https://seea-star.github.io/Cosmic-S-Home/" class="enter-btn">ENTER →</a>
