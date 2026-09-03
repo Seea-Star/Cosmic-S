@@ -273,11 +273,11 @@
     <img src="./notebook-spread.png" alt="Notebook Background" class="notebook-bg">
 
     <div class="splash-card">
-      <button class="card-toggle-btn" id="toggleBtn">News ✨</button>
+      <button class="card-toggle-btn" id="toggleBtn">News </button>
 
       <div class="card-main-view" id="mainView">
         <h1 class="splash-title">COSMIC-S</h1>
-        <a href="https://seea-star.github.io/Cosmic-S-Home/" class="enter-btn">ENTER →</a>
+        <a href="https://seea-star.github.io/Cosmic-S-Home/" class="enter-btn">ENTER -></a>
       </div>
 
       <div class="card-updates-view" id="updatesView">
@@ -297,7 +297,7 @@
     toggleBtn.addEventListener('click', () => {
       const isUpdatesOpen = updatesView.classList.toggle('active');
       mainView.classList.toggle('hidden', isUpdatesOpen);
-      toggleBtn.textContent = isUpdatesOpen ? '✕' : 'News ✨';
+      toggleBtn.textContent = isUpdatesOpen ? '✕' : 'News ';
     });
   </script>
 
