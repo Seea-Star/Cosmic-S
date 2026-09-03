@@ -115,6 +115,11 @@
       width: 100%;
     }
 
+    /* Regola per spegnere la vista principale quando si aprono gli aggiornamenti */
+    .card-main-view.hidden {
+      display: none !important;
+    }
+
     .splash-title {
       font-size: 2.4rem;
       font-weight: 800;
@@ -158,10 +163,6 @@
 
     .card-updates-view.active {
       display: flex;
-    }
-
-    .card-main-view.hidden {
-      display: none;
     }
 
     .updates-title {
@@ -288,16 +289,13 @@
     <img src="./notebook-spread.png" alt="Notebook Background" class="notebook-bg">
 
     <div class="splash-card">
-      <!-- Pulsante in alto a destra dentro la card nera -->
       <button class="card-toggle-btn" id="toggleBtn">What's New?</button>
 
-      <!-- Vista principale (Titolo + ENTER) -->
       <div class="card-main-view" id="mainView">
         <h1 class="splash-title">COSMIC-S</h1>
         <a href="https://seea-star.github.io/Cosmic-S-Home/" class="enter-btn">ENTER →</a>
       </div>
 
-      <!-- Vista degli aggiornamenti con la crocetta -->
       <div class="card-updates-view" id="updatesView">
         <div class="updates-title">Latest Updates</div>
         <div class="updates-text">
@@ -317,7 +315,7 @@
       mainView.classList.toggle('hidden', isUpdatesOpen);
       
       // Cambia il testo del pulsante tra "What's New?" e la crocetta "✕"
-      toggleBtn.textContent = isUpdatesOpen ? '✕' : 'What's New?';
+      toggleBtn.textContent = isUpdatesOpen ? '✕' : "What's New?";
     });
   </script>
 
