@@ -42,7 +42,7 @@
       z-index: 1;
     }
 
-    /* Il foglio del quaderno si trova ora a z-index: 2, così i timbri (z-index: 1) finiscono sotto di esso ma dentro al wrapper */
+    /* Il foglio torna al livello base */
     .notebook-bg {
       position: absolute;
       width: 100%;
@@ -50,7 +50,7 @@
       object-fit: contain;
       filter: none;
       box-shadow: none;
-      z-index: 2;
+      z-index: 1;
     }
 
     .splash-card {
@@ -68,7 +68,7 @@
       justify-content: center;
       gap: 25px;
       overflow: hidden;
-      z-index: 3;
+      z-index: 2;
     }
 
     .splash-card::before {
@@ -113,12 +113,12 @@
       background: #f0f0f3;
     }
 
-    /* Post-it interattivo (colore F3EEDA) posizionato sopra il foglio */
+    /* Post-it interattivo (z-index: 10), il livello più alto in assoluto */
     .update-postit {
       position: absolute;
       top: 35px;
       right: 35px;
-      z-index: 6;
+      z-index: 10;
       cursor: pointer;
     }
 
@@ -153,7 +153,7 @@
       box-shadow: 3px 5px 12px rgba(0,0,0,0.25);
       transform: rotate(2deg);
       display: none;
-      z-index: 7;
+      z-index: 11;
       text-align: left;
     }
 
@@ -198,16 +198,16 @@
       line-height: 1.3;
     }
 
-    /* I stamps ora sono posizionati DENTRO il wrapper e hanno z-index: 1, quindi finiscono sotto al foglio del quaderno (z-index: 2) ma sopra allo sfondo generale della pagina */
+    /* I stamps tornano sopra al foglio ma hanno z-index: 5, quindi si trovano sotto al post-it (z-index: 10) */
     .stamp-sticker {
       position: absolute;
       height: auto;
-      z-index: 1;
+      z-index: 5;
       pointer-events: none;
       filter: drop-shadow(2px 2px 3px rgba(0,0,0,0.25));
     }
 
-    /* Posizionati strategicamente nello spazio tra il bordo esterno e il box nero centrale */
+    /* Posizionati nello spazio tra il bordo dello schermo e la card centrale */
     .stamp-1  { width: 45px; top: 16%; left: 18%; transform: rotate(-14deg); }
     .stamp-2  { width: 68px; top: 14%; left: 32%; transform: rotate(10deg); }
     .stamp-3  { width: 52px; top: 18%; right: 22%; transform: rotate(16deg); }
@@ -291,23 +291,23 @@
 </head>
 <body>
 
-  <div class="scene-wrapper">
-    <img src="./stamp-1.png" alt="Stamp 1" class="stamp-sticker stamp-1">
-    <img src="./stamp-2.png" alt="Stamp 2" class="stamp-sticker stamp-2">
-    <img src="./stamp-3.png" alt="Stamp 3" class="stamp-sticker stamp-3">
-    <img src="./stamp-4.png" alt="Stamp 4" class="stamp-sticker stamp-4">
-    <img src="./stamp-5.png" alt="Stamp 5" class="stamp-sticker stamp-5">
-    <img src="./stamp-6.png" alt="Stamp 6" class="stamp-sticker stamp-6">
-    <img src="./stamp-7.png" alt="Stamp 7" class="stamp-sticker stamp-7">
-    <img src="./stamp-8.png" alt="Stamp 8" class="stamp-sticker stamp-8">
-    <img src="./stamp-9.png" alt="Stamp 9" class="stamp-sticker stamp-9">
-    <img src="./stamp-10.png" alt="Stamp 10" class="stamp-sticker stamp-10">
-    <img src="./stamp-11.png" alt="Stamp 11" class="stamp-sticker stamp-11">
-    <img src="./stamp-12.png" alt="Stamp 12" class="stamp-sticker stamp-12">
-    <img src="./stamp-13.png" alt="Stamp 13" class="stamp-sticker stamp-13">
-    <img src="./stamp-14.png" alt="Stamp 14" class="stamp-sticker stamp-14">
-    <img src="./stamp-15.png" alt="Stamp 15" class="stamp-sticker stamp-15">
+  <img src="./stamp-1.png" alt="Stamp 1" class="stamp-sticker stamp-1">
+  <img src="./stamp-2.png" alt="Stamp 2" class="stamp-sticker stamp-2">
+  <img src="./stamp-3.png" alt="Stamp 3" class="stamp-sticker stamp-3">
+  <img src="./stamp-4.png" alt="Stamp 4" class="stamp-sticker stamp-4">
+  <img src="./stamp-5.png" alt="Stamp 5" class="stamp-sticker stamp-5">
+  <img src="./stamp-6.png" alt="Stamp 6" class="stamp-sticker stamp-6">
+  <img src="./stamp-7.png" alt="Stamp 7" class="stamp-sticker stamp-7">
+  <img src="./stamp-8.png" alt="Stamp 8" class="stamp-sticker stamp-8">
+  <img src="./stamp-9.png" alt="Stamp 9" class="stamp-sticker stamp-9">
+  <img src="./stamp-10.png" alt="Stamp 10" class="stamp-sticker stamp-10">
+  <img src="./stamp-11.png" alt="Stamp 11" class="stamp-sticker stamp-11">
+  <img src="./stamp-12.png" alt="Stamp 12" class="stamp-sticker stamp-12">
+  <img src="./stamp-13.png" alt="Stamp 13" class="stamp-sticker stamp-13">
+  <img src="./stamp-14.png" alt="Stamp 14" class="stamp-sticker stamp-14">
+  <img src="./stamp-15.png" alt="Stamp 15" class="stamp-sticker stamp-15">
 
+  <div class="scene-wrapper">
     <img src="./notebook-spread.png" alt="Notebook Background" class="notebook-bg">
 
     <div class="update-postit">
