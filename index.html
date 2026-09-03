@@ -66,6 +66,7 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
+      align-items: center;
       gap: 25px;
       overflow: hidden;
       z-index: 6;
@@ -75,13 +76,43 @@
       content: '';
       position: absolute;
       top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(0, 0, 0, 0.35);
+      background: rgba(0, 0, 0, 0.45);
       z-index: 1;
     }
 
     .splash-card > * {
       position: relative;
       z-index: 2;
+    }
+
+    /* Pulsante per aprire gli aggiornamenti (in alto a destra dentro la card nera) */
+    .card-toggle-btn {
+      position: absolute;
+      top: 12px;
+      right: 15px;
+      background: rgba(255, 255, 255, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      color: #ffffff;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 12px;
+      cursor: pointer;
+      z-index: 10;
+      transition: background 0.15s ease;
+    }
+
+    .card-toggle-btn:hover {
+      background: rgba(255, 255, 255, 0.35);
+    }
+
+    /* Vista principale (Titolo + ENTER) */
+    .card-main-view {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 22px;
+      width: 100%;
     }
 
     .splash-title {
@@ -113,92 +144,48 @@
       background: #f0f0f3;
     }
 
-    /* Post-it interattivo al livello più alto assoluto (z-index: 20 e 25) per proteggerlo dai timbri */
-    .update-postit {
-      position: absolute;
-      top: 35px;
-      right: 35px;
-      z-index: 20;
-      cursor: pointer;
-    }
-
-    .postit-tab {
-      background: #F3EEDA;
-      color: #222222;
-      font-size: 0.75rem;
-      font-weight: 800;
-      padding: 6px 12px;
-      border-radius: 4px;
-      box-shadow: 2px 3px 6px rgba(0,0,0,0.2);
-      transform: rotate(6deg);
-      border: 1px dashed #d5ccb6;
-      transition: transform 0.15s ease, background 0.15s ease;
-      letter-spacing: 0.5px;
-    }
-
-    .postit-tab:hover {
-      background: #eae3cc;
-      transform: rotate(6deg) scale(1.05);
-    }
-
-    .postit-popup {
-      position: absolute;
-      top: 35px;
-      right: 0;
-      width: 200px;
-      background: #F3EEDA;
-      border: 2px solid #d5ccb6;
-      border-radius: 8px;
-      padding: 12px;
-      box-shadow: 3px 5px 12px rgba(0,0,0,0.25);
-      transform: rotate(2deg);
+    /* Vista degli aggiornamenti (nascosta di default) */
+    .card-updates-view {
       display: none;
-      z-index: 25;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+      padding: 10px 5px;
       text-align: left;
     }
 
-    .postit-popup.active {
-      display: block;
-    }
-
-    .postit-header {
+    .card-updates-view.active {
       display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 6px;
-      border-bottom: 1px solid #d5ccb6;
-      padding-bottom: 4px;
     }
 
-    .postit-title {
-      font-size: 0.7rem;
+    .card-main-view.hidden {
+      display: none;
+    }
+
+    .updates-title {
+      font-size: 0.85rem;
       font-weight: 800;
+      color: #ffffff;
       text-transform: uppercase;
-      color: #333333;
       letter-spacing: 1px;
+      margin-bottom: 8px;
+      text-shadow: 0 0 8px rgba(0,0,0,0.8);
     }
 
-    .postit-close {
-      background: none;
-      border: none;
-      font-size: 0.8rem;
-      font-weight: bold;
-      cursor: pointer;
-      color: #555555;
-    }
-
-    .postit-close:hover {
-      color: #000000;
-    }
-
-    .postit-content {
+    .updates-text {
       font-size: 0.75rem;
       font-weight: 700;
-      color: #222222;
-      line-height: 1.3;
+      color: #f0f0f0;
+      line-height: 1.4;
+      text-shadow: 0 1px 3px rgba(0,0,0,0.9);
+      max-height: 120px;
+      overflow-y: auto;
+      padding-right: 4px;
     }
 
-    /* I timbri hanno z-index: 5 (sopra il quaderno ma sotto al post-it) */
+    /* I timbri hanno z-index: 5 (sopra il quaderno) */
     .stamp-sticker {
       position: absolute;
       height: auto;
@@ -207,7 +194,7 @@
       filter: drop-shadow(2px 2px 3px rgba(0,0,0,0.25));
     }
 
-    /* Posizioni dei timbri esattamente come le hai volute tu */
+    /* Posizioni dei timbri invariate */
     .stamp-1  { width: 45px; top: 16%; left: 18%; transform: rotate(-14deg); }
     .stamp-2  { width: 68px; top: 14%; left: 32%; transform: rotate(10deg); }
     .stamp-3  { width: 52px; top: 18%; right: 22%; transform: rotate(16deg); }
@@ -254,21 +241,11 @@
         border-radius: 12px;
       }
 
-      .update-postit {
-        top: 20px;
-        right: 20px;
-      }
-
-      .postit-tab {
+      .card-toggle-btn {
+        top: 8px;
+        right: 10px;
         font-size: 0.65rem;
-        padding: 4px 8px;
-      }
-
-      .postit-popup {
-        width: 170px;
-        top: 25px;
-        right: 0;
-        padding: 10px;
+        padding: 3px 8px;
       }
 
       .stamp-1  { width: 35px; top: 18%; left: 8%; }
@@ -310,44 +287,37 @@
   <div class="scene-wrapper">
     <img src="./notebook-spread.png" alt="Notebook Background" class="notebook-bg">
 
-    <div class="update-postit">
-      <div class="postit-tab" id="postitTab">𖡎 What's New?</div>
-      <div class="postit-popup" id="postitPopup">
-        <div class="postit-header">
-          <span class="postit-title">Latest Updates</span>
-          <button class="postit-close" id="postitClose">✕</button>
-        </div>
-        <div class="postit-content">
-          Ⰶ Added new stamps inspired by 1776! Check them out in the stamps gallery.
+    <div class="splash-card">
+      <!-- Pulsante in alto a destra dentro la card nera -->
+      <button class="card-toggle-btn" id="toggleBtn">What's New?</button>
+
+      <!-- Vista principale (Titolo + ENTER) -->
+      <div class="card-main-view" id="mainView">
+        <h1 class="splash-title">COSMIC-S</h1>
+        <a href="https://seea-star.github.io/Cosmic-S-Home/" class="enter-btn">ENTER →</a>
+      </div>
+
+      <!-- Vista degli aggiornamenti con la crocetta -->
+      <div class="card-updates-view" id="updatesView">
+        <div class="updates-title">Latest Updates</div>
+        <div class="updates-text">
+          ✦ Added new stamps inspired by 1776! Check them out in the stamps gallery.
         </div>
       </div>
-    </div>
-
-    <div class="splash-card">
-      <h1 class="splash-title">COSMIC-S</h1>
-      <a href="https://seea-star.github.io/Cosmic-S-Home/" class="enter-btn">ENTER →</a>
     </div>
   </div>
 
   <script>
-    const tab = document.getElementById('postitTab');
-    const popup = document.getElementById('postitPopup');
-    const closeBtn = document.getElementById('postitClose');
+    const toggleBtn = document.getElementById('toggleBtn');
+    const mainView = document.getElementById('mainView');
+    const updatesView = document.getElementById('updatesView');
 
-    tab.addEventListener('click', (e) => {
-      e.stopPropagation();
-      popup.classList.toggle('active');
-    });
-
-    closeBtn.addEventListener('click', (e) => {
-      e.stopPropagation();
-      popup.classList.remove('active');
-    });
-
-    document.addEventListener('click', (e) => {
-      if (!popup.contains(e.target) && e.target !== tab) {
-        popup.classList.remove('active');
-      }
+    toggleBtn.addEventListener('click', () => {
+      const isUpdatesOpen = updatesView.classList.toggle('active');
+      mainView.classList.toggle('hidden', isUpdatesOpen);
+      
+      // Cambia il testo del pulsante tra "What's New?" e la crocetta "✕"
+      toggleBtn.textContent = isUpdatesOpen ? '✕' : 'What's New?';
     });
   </script>
 
