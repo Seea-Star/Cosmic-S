@@ -74,17 +74,18 @@
 
     .splash-card {
       position: absolute;
-      width: 330px;
-      height: 250px;
+      width: 320px;
+      height: 220px;
       background: #111111 url('./4e432360601c9df1cab3274448a0fa56.gif') no-repeat center center;
       background-size: cover;
       border: 3px solid #111111;
       border-radius: 28px;
-      padding: 22px 18px;
+      padding: 30px 20px;
       text-align: center;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
+      justify-content: center;
+      gap: 25px;
       overflow: hidden;
       z-index: 2;
     }
@@ -93,7 +94,7 @@
       content: '';
       position: absolute;
       top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(0, 0, 0, 0.4);
+      background: rgba(0, 0, 0, 0.35);
       z-index: 1;
     }
 
@@ -103,38 +104,12 @@
     }
 
     .splash-title {
-      font-size: 2rem;
+      font-size: 2.4rem;
       font-weight: 800;
       letter-spacing: 2px;
       color: #ffffff;
       line-height: 1;
-      text-shadow: 0 0 10px rgba(255,255,255,0.9);
-    }
-
-    /* Box per gli aggiornamenti (Changelog) */
-    .updates-box {
-      background: rgba(255, 255, 255, 0.15);
-      backdrop-filter: blur(4px);
-      border: 1px solid rgba(255, 255, 255, 0.3);
-      border-radius: 12px;
-      padding: 8px 10px;
-      text-align: left;
-      color: #ffffff;
-    }
-
-    .updates-title {
-      font-size: 0.75rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      color: #ffb6c1;
-      margin-bottom: 2px;
-    }
-
-    .updates-text {
-      font-size: 0.8rem;
-      font-weight: 600;
-      line-height: 1.2;
+      text-shadow: 0 0 10px rgba(255,255,255,0.9), 0 0 20px rgba(255,255,255,0.6);
     }
 
     .enter-btn {
@@ -143,9 +118,9 @@
       background: #ffffff;
       color: #111111;
       border: none;
-      border-radius: 14px;
-      padding: 10px;
-      font-size: 0.95rem;
+      border-radius: 16px;
+      padding: 12px;
+      font-size: 1rem;
       font-weight: 800;
       text-decoration: none;
       box-shadow: 0 0 15px rgba(255, 255, 255, 0.9);
@@ -157,43 +132,139 @@
       background: #f0f0f3;
     }
 
-    /* Ottimizzazione per smartphone */
+    /* Post-it interattivo per gli aggiornamenti (Changelog sticker) */
+    .update-postit {
+      position: absolute;
+      top: 35px;
+      right: 35px;
+      z-index: 4;
+      cursor: pointer;
+    }
+
+    .postit-tab {
+      background: #fff68f;
+      color: #333333;
+      font-size: 0.75rem;
+      font-weight: 800;
+      padding: 6px 12px;
+      border-radius: 4px;
+      box-shadow: 2px 3px 6px rgba(0,0,0,0.2);
+      transform: rotate(6deg);
+      border: 1px dashed #e6db63;
+      transition: transform 0.15s ease, background 0.15s ease;
+      letter-spacing: 0.5px;
+    }
+
+    .postit-tab:hover {
+      background: #fff176;
+      transform: rotate(6deg) scale(1.05);
+    }
+
+    .postit-popup {
+      position: absolute;
+      top: 35px;
+      right: 0;
+      width: 200px;
+      background: #fffde7;
+      border: 2px solid #e0d86c;
+      border-radius: 8px;
+      padding: 12px;
+      box-shadow: 3px 5px 12px rgba(0,0,0,0.25);
+      transform: rotate(2deg);
+      display: none;
+      z-index: 5;
+      text-align: left;
+    }
+
+    .postit-popup.active {
+      display: block;
+    }
+
+    .postit-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 6px;
+      border-bottom: 1px solid #e6db63;
+      padding-bottom: 4px;
+    }
+
+    .postit-title {
+      font-size: 0.7rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      color: #d35400;
+      letter-spacing: 1px;
+    }
+
+    .postit-close {
+      background: none;
+      border: none;
+      font-size: 0.8rem;
+      font-weight: bold;
+      cursor: pointer;
+      color: #666;
+    }
+
+    .postit-close:hover {
+      color: #000;
+    }
+
+    .postit-content {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #222222;
+      line-height: 1.3;
+    }
+
+    /* Ottimizzazione per smartphone (schermi piccoli) */
     @media (max-width: 600px) {
+      body {
+        padding: 10px;
+      }
+
       .scene-wrapper {
         height: 360px;
+        max-width: 100%;
       }
 
       .splash-card {
-        width: 270px;
-        height: 220px;
-        padding: 18px 14px;
+        width: 260px;
+        height: 180px;
+        padding: 20px 15px;
+        gap: 18px;
         border-radius: 22px;
         border-width: 2px;
       }
 
       .splash-title {
-        font-size: 1.6rem;
-      }
-
-      .updates-box {
-        padding: 6px 8px;
-      }
-
-      .updates-title {
-        font-size: 0.7rem;
-      }
-
-      .updates-text {
-        font-size: 0.75rem;
+        font-size: 1.8rem;
       }
 
       .enter-btn {
-        padding: 8px;
-        font-size: 0.85rem;
-        border-radius: 10px;
+        padding: 10px;
+        font-size: 0.9rem;
+        border-radius: 12px;
       }
 
-      /* Timbri rimpiccioliti per mobile */
+      .update-postit {
+        top: 20px;
+        right: 20px;
+      }
+
+      .postit-tab {
+        font-size: 0.65rem;
+        padding: 4px 8px;
+      }
+
+      .postit-popup {
+        width: 170px;
+        top: 25px;
+        right: 0;
+        padding: 10px;
+      }
+
+      /* Riduciamo leggermente le dimensioni dei timbri su mobile */
       .stamp-1  { width: 42px; top: 25px; left: 25px; }
       .stamp-2  { width: 46px; top: 20px; left: 110px; }
       .stamp-3  { width: 38px; top: 25px; right: 30px; }
@@ -217,6 +288,19 @@
   <div class="scene-wrapper">
     <img src="./notebook-spread.png" alt="Notebook Background" class="notebook-bg">
 
+    <div class="update-postit">
+      <div class="postit-tab" id="postitTab">📌 What's New?</div>
+      <div class="postit-popup" id="postitPopup">
+        <div class="postit-header">
+          <span class="postit-title">Latest Updates</span>
+          <button class="postit-close" id="postitClose">✕</button>
+        </div>
+        <div class="postit-content">
+          ✨ Added new stamps inspired by 1776! Check them out in the stamps gallery.
+        </div>
+      </div>
+    </div>
+
     <img src="./stamp-1.png" alt="Stamp 1" class="stamp-sticker stamp-1">
     <img src="./stamp-2.png" alt="Stamp 2" class="stamp-sticker stamp-2">
     <img src="./stamp-3.png" alt="Stamp 3" class="stamp-sticker stamp-3">
@@ -235,16 +319,32 @@
 
     <div class="splash-card">
       <h1 class="splash-title">COSMIC-S</h1>
-      
-      <!-- Sezione aggiornamenti: modifica qui il testo ogni volta che aggiorni il sito -->
-      <div class="updates-box">
-        <div class="updates-title">What's New:</div>
-        <div class="updates-text">Added new stamps inspired by 1776! ✨</div>
-      </div>
-
       <a href="https://seea-star.github.io/Cosmic-S-Home/" class="enter-btn">ENTER →</a>
     </div>
   </div>
+
+  <script>
+    const tab = document.getElementById('postitTab');
+    const popup = document.getElementById('postitPopup');
+    const closeBtn = document.getElementById('postitClose');
+
+    tab.addEventListener('click', (e) => {
+      e.stopPropagation();
+      popup.classList.toggle('active');
+    });
+
+    closeBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      popup.classList.remove('active');
+    });
+
+    // Chiude il post-it se si clicca fuori
+    document.addEventListener('click', (e) => {
+      if (!popup.contains(e.target) && e.target !== tab) {
+        popup.classList.remove('active');
+      }
+    });
+  </script>
 
 </body>
 </html>
