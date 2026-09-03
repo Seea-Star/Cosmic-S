@@ -112,13 +112,14 @@
       display: none !important;
     }
 
+    /* Nome del sito leggermente più grande e con un glow più intenso */
     .splash-title {
-      font-size: 2.4rem;
+      font-size: 2.7rem;
       font-weight: 800;
       letter-spacing: 2px;
       color: #ffffff;
       line-height: 1;
-      text-shadow: 0 0 10px rgba(255,255,255,0.9), 0 0 20px rgba(255,255,255,0.6);
+      text-shadow: 0 0 14px rgba(255,255,255,1), 0 0 28px rgba(255,255,255,0.8), 0 0 40px rgba(255,255,255,0.4);
     }
 
     .enter-btn {
@@ -177,7 +178,7 @@
       padding-right: 4px;
     }
 
-    /* Timbri ingranditi proporzionalmente */
+    /* Timbri */
     .stamp-sticker {
       position: absolute;
       height: auto;
@@ -224,7 +225,7 @@
       }
 
       .splash-title {
-        font-size: 1.6rem;
+        font-size: 2.1rem;
       }
 
       .enter-btn {
@@ -272,7 +273,7 @@
     <img src="./notebook-spread.png" alt="Notebook Background" class="notebook-bg">
 
     <div class="splash-card">
-      <button class="card-toggle-btn" id="toggleBtn">What's New?</button>
+      <button class="card-toggle-btn" id="toggleBtn">News ✨</button>
 
       <div class="card-main-view" id="mainView">
         <h1 class="splash-title">COSMIC-S</h1>
@@ -296,7 +297,7 @@
     toggleBtn.addEventListener('click', () => {
       const isUpdatesOpen = updatesView.classList.toggle('active');
       mainView.classList.toggle('hidden', isUpdatesOpen);
-      toggleBtn.textContent = isUpdatesOpen ? '✕' : "What's New?";
+      toggleBtn.textContent = isUpdatesOpen ? '✕' : 'News ✨';
     });
   </script>
 
