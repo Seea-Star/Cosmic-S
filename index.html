@@ -29,7 +29,6 @@
       position: relative;
     }
 
-    /* Contenitore a misura fissa per bloccare i timbri nella fascia di sicurezza intermedia */
     .scene-wrapper {
       position: relative;
       width: 820px;
@@ -41,7 +40,6 @@
       flex-shrink: 0;
     }
 
-    /* Il foglio del quaderno al centro */
     .notebook-bg {
       position: absolute;
       width: 580px;
@@ -82,7 +80,6 @@
       z-index: 2;
     }
 
-    /* Pulsante per aprire gli aggiornamenti */
     .card-toggle-btn {
       position: absolute;
       top: 12px;
@@ -103,7 +100,6 @@
       background: rgba(255, 255, 255, 0.35);
     }
 
-    /* Vista principale */
     .card-main-view {
       display: flex;
       flex-direction: column;
@@ -145,7 +141,6 @@
       background: #f0f0f3;
     }
 
-    /* Vista degli aggiornamenti */
     .card-updates-view {
       display: none;
       flex-direction: column;
@@ -182,7 +177,7 @@
       padding-right: 4px;
     }
 
-    /* Timbri */
+    /* Timbri ingranditi proporzionalmente */
     .stamp-sticker {
       position: absolute;
       height: auto;
@@ -191,24 +186,21 @@
       filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.3));
     }
 
-    .stamp-1  { width: 42px; top: 10%; left: 16%; transform: rotate(-14deg); }
-    .stamp-2  { width: 58px; top: 8%; left: 32%; transform: rotate(10deg); }
-    .stamp-3  { width: 48px; top: 10%; right: 18%; transform: rotate(16deg); }
-    .stamp-4  { width: 66px; top: 44%; left: 10%; transform: rotate(20deg); }
-    .stamp-5  { width: 52px; top: 42%; right: 10%; transform: rotate(-18deg); }
-    .stamp-6  { width: 55px; bottom: 12%; left: 15%; transform: rotate(-10deg); }
-    /* Timbro 7 leggermente più vicino al centro e più grande */
-    .stamp-7  { width: 48px; bottom: 18%; left: 40%; transform: rotate(14deg); }
-    .stamp-8  { width: 62px; bottom: 12%; right: 15%; transform: rotate(-12deg); }
-    .stamp-9  { width: 48px; top: 28%; left: 13%; transform: rotate(6deg); }
-    .stamp-10 { width: 56px; top: 28%; right: 13%; transform: rotate(-8deg); }
-    .stamp-11 { width: 42px; bottom: 28%; left: 15%; transform: rotate(-16deg); }
-    .stamp-12 { width: 52px; bottom: 26%; right: 15%; transform: rotate(18deg); }
-    /* Timbro 13 leggermente più vicino al centro e più grande */
-    .stamp-13 { width: 72px; top: 14%; left: 44%; transform: rotate(-5deg); }
-    .stamp-14 { width: 36px; bottom: 8%; left: 50%; transform: rotate(9deg); }
-    /* Timbro 15 leggermente più vicino al centro e più grande */
-    .stamp-15 { width: 54px; bottom: 22%; right: 41%; transform: rotate(-13deg); }
+    .stamp-1  { width: 52px; top: 10%; left: 16%; transform: rotate(-14deg); }
+    .stamp-2  { width: 70px; top: 8%; left: 32%; transform: rotate(10deg); }
+    .stamp-3  { width: 58px; top: 10%; right: 18%; transform: rotate(16deg); }
+    .stamp-4  { width: 78px; top: 44%; left: 10%; transform: rotate(20deg); }
+    .stamp-5  { width: 62px; top: 42%; right: 10%; transform: rotate(-18deg); }
+    .stamp-6  { width: 66px; bottom: 12%; left: 15%; transform: rotate(-10deg); }
+    .stamp-7  { width: 58px; bottom: 18%; left: 40%; transform: rotate(14deg); }
+    .stamp-8  { width: 74px; bottom: 12%; right: 15%; transform: rotate(-12deg); }
+    .stamp-9  { width: 58px; top: 28%; left: 13%; transform: rotate(6deg); }
+    .stamp-10 { width: 66px; top: 28%; right: 13%; transform: rotate(-8deg); }
+    .stamp-11 { width: 52px; bottom: 28%; left: 15%; transform: rotate(-16deg); }
+    .stamp-12 { width: 62px; bottom: 26%; right: 15%; transform: rotate(18deg); }
+    .stamp-13 { width: 84px; top: 14%; left: 44%; transform: rotate(-5deg); }
+    .stamp-14 { width: 46px; bottom: 8%; left: 50%; transform: rotate(9deg); }
+    .stamp-15 { width: 64px; bottom: 22%; right: 41%; transform: rotate(-13deg); }
 
     /* Ottimizzazione per smartphone */
     @media (max-width: 600px) {
@@ -240,21 +232,21 @@
         font-size: 0.85rem;
       }
 
-      .stamp-1  { width: 30px; top: 15%; left: 12%; }
-      .stamp-2  { width: 40px; top: 12%; left: 28%; }
-      .stamp-3  { width: 32px; top: 14%; right: 12%; }
-      .stamp-4  { width: 44px; top: 43%; left: 6%; }
-      .stamp-5  { width: 36px; top: 40%; right: 6%; }
-      .stamp-6  { width: 38px; bottom: 15%; left: 10%; }
-      .stamp-7  { width: 34px; bottom: 20%; left: 35%; }
-      .stamp-8  { width: 42px; bottom: 15%; right: 10%; }
-      .stamp-9  { width: 32px; top: 27%; left: 9%; }
-      .stamp-10 { width: 38px; top: 27%; right: 9%; }
-      .stamp-11 { width: 30px; bottom: 27%; left: 10%; }
-      .stamp-12 { width: 36px; bottom: 25%; right: 10%; }
-      .stamp-13 { width: 48px; top: 16%; left: 40%; }
-      .stamp-14 { width: 26px; bottom: 10%; left: 45%; }
-      .stamp-15 { width: 38px; bottom: 23%; right: 36%; }
+      .stamp-1  { width: 38px; top: 15%; left: 12%; }
+      .stamp-2  { width: 50px; top: 12%; left: 28%; }
+      .stamp-3  { width: 40px; top: 14%; right: 12%; }
+      .stamp-4  { width: 54px; top: 43%; left: 6%; }
+      .stamp-5  { width: 44px; top: 40%; right: 6%; }
+      .stamp-6  { width: 48px; bottom: 15%; left: 10%; }
+      .stamp-7  { width: 42px; bottom: 20%; left: 35%; }
+      .stamp-8  { width: 52px; bottom: 15%; right: 10%; }
+      .stamp-9  { width: 40px; top: 27%; left: 9%; }
+      .stamp-10 { width: 48px; top: 27%; right: 9%; }
+      .stamp-11 { width: 38px; bottom: 27%; left: 10%; }
+      .stamp-12 { width: 44px; bottom: 25%; right: 10%; }
+      .stamp-13 { width: 58px; top: 16%; left: 40%; }
+      .stamp-14 { width: 34px; bottom: 10%; left: 45%; }
+      .stamp-15 { width: 46px; bottom: 23%; right: 36%; }
     }
   </style>
 </head>
