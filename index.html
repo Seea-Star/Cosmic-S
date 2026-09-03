@@ -30,23 +30,24 @@
       position: relative;
     }
 
-    /* Contenitore centrale della scena */
+    /* Contenitore principale a tutto schermo per sparpagliare i timbri verso i bordi del monitor */
     .scene-wrapper {
       position: relative;
       width: 100%;
-      max-width: 580px;
-      height: 420px;
+      max-width: 900px;
+      height: 600px;
       display: flex;
       justify-content: center;
       align-items: center;
       z-index: 1;
     }
 
-    /* Il foglio del quaderno (z-index: 1) */
+    /* Il foglio del quaderno al centro (z-index: 1) */
     .notebook-bg {
       position: absolute;
       width: 100%;
-      height: 100%;
+      max-width: 580px;
+      height: 420px;
       object-fit: contain;
       filter: none;
       box-shadow: none;
@@ -115,7 +116,6 @@
       width: 100%;
     }
 
-    /* Regola per spegnere la vista principale quando si aprono gli aggiornamenti */
     .card-main-view.hidden {
       display: none !important;
     }
@@ -186,41 +186,46 @@
       padding-right: 4px;
     }
 
-    /* I timbri hanno z-index: 5 (sopra il quaderno) e posizioni ottimizzate per non toccarsi */
+    /* I timbri fluttuano nello spazio esterno tra il rettangolo nero e i bordi del monitor */
     .stamp-sticker {
       position: absolute;
       height: auto;
       z-index: 5;
       pointer-events: none;
-      filter: drop-shadow(2px 2px 3px rgba(0,0,0,0.25));
+      filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.3));
     }
 
-    /* Posizioni dei timbri ricalibrate per evitare contatti e sovrapposizioni */
-    .stamp-1  { width: 44px; top: 12%; left: 14%; transform: rotate(-14deg); }
-    .stamp-2  { width: 62px; top: 10%; left: 27%; transform: rotate(10deg); }
-    .stamp-3  { width: 50px; top: 12%; right: 16%; transform: rotate(16deg); }
-    .stamp-4  { width: 70px; top: 46%; left: 8%; transform: rotate(20deg); }
-    .stamp-5  { width: 55px; top: 38%; right: 9%; transform: rotate(-18deg); }
-    .stamp-6  { width: 58px; bottom: 12%; left: 12%; transform: rotate(-10deg); }
-    .stamp-7  { width: 40px; bottom: 10%; left: 32%; transform: rotate(14deg); }
-    .stamp-8  { width: 65px; bottom: 12%; right: 12%; transform: rotate(-12deg); }
-    .stamp-9  { width: 50px; top: 25%; left: 12%; transform: rotate(6deg); }
-    .stamp-10 { width: 60px; top: 26%; right: 16%; transform: rotate(-8deg); }
-    .stamp-11 { width: 45px; bottom: 25%; left: 14%; transform: rotate(-16deg); }
-    .stamp-12 { width: 55px; bottom: 23%; right: 17%; transform: rotate(18deg); }
-    .stamp-13 { width: 66px; top: 8%; left: 42%; transform: rotate(-5deg); }
-    .stamp-14 { width: 38px; bottom: 8%; left: 45%; transform: rotate(9deg); }
-    .stamp-15 { width: 46px; top: 76%; right: 14%; transform: rotate(-13deg); }
+    /* Posizioni dei timbri ampiamente distanziate tra la card centrale e i bordi esterni dello schermo */
+    .stamp-1  { width: 48px; top: 2%; left: 4%; transform: rotate(-14deg); }
+    .stamp-2  { width: 68px; top: 0%; left: 32%; transform: rotate(10deg); }
+    .stamp-3  { width: 54px; top: 3%; right: 5%; transform: rotate(16deg); }
+    .stamp-4  { width: 78px; top: 40%; left: 1%; transform: rotate(20deg); }
+    .stamp-5  { width: 62px; top: 35%; right: 1%; transform: rotate(-18deg); }
+    .stamp-6  { width: 64px; bottom: 2%; left: 3%; transform: rotate(-10deg); }
+    .stamp-7  { width: 45px; bottom: 0%; left: 34%; transform: rotate(14deg); }
+    .stamp-8  { width: 72px; bottom: 2%; right: 3%; transform: rotate(-12deg); }
+    .stamp-9  { width: 56px; top: 20%; left: 10%; transform: rotate(6deg); }
+    .stamp-10 { width: 66px; top: 21%; right: 11%; transform: rotate(-8deg); }
+    .stamp-11 { width: 50px; bottom: 21%; left: 12%; transform: rotate(-16deg); }
+    .stamp-12 { width: 60px; bottom: 19%; right: 13%; transform: rotate(18deg); }
+    .stamp-13 { width: 74px; top: 0%; left: 58%; transform: rotate(-5deg); }
+    .stamp-14 { width: 42px; bottom: 0%; left: 60%; transform: rotate(9deg); }
+    .stamp-15 { width: 52px; bottom: 2%; right: 38%; transform: rotate(-13deg); }
 
-    /* Ottimizzazione per smartphone con distanze di sicurezza anti-sovrapposizione */
+    /* Ottimizzazione per smartphone */
     @media (max-width: 600px) {
       body {
         padding: 15px 10px;
       }
 
       .scene-wrapper {
-        height: 360px;
+        height: 480px;
         max-width: 100%;
+      }
+
+      .notebook-bg {
+        max-width: 100%;
+        height: 360px;
       }
 
       .splash-card {
@@ -249,21 +254,21 @@
         padding: 3px 8px;
       }
 
-      .stamp-1  { width: 32px; top: 15%; left: 6%; }
-      .stamp-2  { width: 42px; top: 12%; left: 22%; }
-      .stamp-3  { width: 34px; top: 13%; right: 8%; }
-      .stamp-4  { width: 46px; top: 44%; left: 3%; }
-      .stamp-5  { width: 38px; top: 38%; right: 4%; }
-      .stamp-6  { width: 40px; bottom: 12%; left: 5%; }
-      .stamp-7  { width: 30px; bottom: 10%; left: 24%; }
-      .stamp-8  { width: 44px; bottom: 12%; right: 5%; }
-      .stamp-9  { width: 35px; top: 23%; left: 8%; }
-      .stamp-10 { width: 40px; top: 24%; right: 8%; }
-      .stamp-11 { width: 32px; bottom: 23%; left: 8%; }
-      .stamp-12 { width: 38px; bottom: 22%; right: 9%; }
-      .stamp-13 { width: 44px; top: 9%; left: 36%; }
-      .stamp-14 { width: 28px; bottom: 8%; left: 38%; }
-      .stamp-15 { width: 34px; top: 76%; right: 6%; }
+      .stamp-1  { width: 34px; top: 5%; left: 2%; }
+      .stamp-2  { width: 46px; top: 2%; left: 25%; }
+      .stamp-3  { width: 38px; top: 4%; right: 2%; }
+      .stamp-4  { width: 52px; top: 42%; left: 0%; }
+      .stamp-5  { width: 42px; top: 38%; right: 0%; }
+      .stamp-6  { width: 44px; bottom: 4%; left: 2%; }
+      .stamp-7  { width: 32px; bottom: 2%; left: 28%; }
+      .stamp-8  { width: 48px; bottom: 4%; right: 2%; }
+      .stamp-9  { width: 38px; top: 22%; left: 4%; }
+      .stamp-10 { width: 44px; top: 23%; right: 4%; }
+      .stamp-11 { width: 35px; bottom: 22%; left: 5%; }
+      .stamp-12 { width: 42px; bottom: 20%; right: 5%; }
+      .stamp-13 { width: 50px; top: 2%; left: 50%; }
+      .stamp-14 { width: 30px; bottom: 2%; left: 52%; }
+      .stamp-15 { width: 36px; bottom: 4%; right: 30%; }
     }
   </style>
 </head>
