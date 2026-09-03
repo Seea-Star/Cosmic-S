@@ -74,18 +74,17 @@
 
     .splash-card {
       position: absolute;
-      width: 320px;
-      height: 220px;
+      width: 330px;
+      height: 250px;
       background: #111111 url('./4e432360601c9df1cab3274448a0fa56.gif') no-repeat center center;
       background-size: cover;
       border: 3px solid #111111;
       border-radius: 28px;
-      padding: 30px 20px;
+      padding: 22px 18px;
       text-align: center;
       display: flex;
       flex-direction: column;
-      justify-content: center;
-      gap: 25px;
+      justify-content: space-between;
       overflow: hidden;
       z-index: 2;
     }
@@ -94,7 +93,7 @@
       content: '';
       position: absolute;
       top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(0, 0, 0, 0.35);
+      background: rgba(0, 0, 0, 0.4);
       z-index: 1;
     }
 
@@ -104,12 +103,38 @@
     }
 
     .splash-title {
-      font-size: 2.4rem;
+      font-size: 2rem;
       font-weight: 800;
       letter-spacing: 2px;
       color: #ffffff;
       line-height: 1;
-      text-shadow: 0 0 10px rgba(255,255,255,0.9), 0 0 20px rgba(255,255,255,0.6);
+      text-shadow: 0 0 10px rgba(255,255,255,0.9);
+    }
+
+    /* Box per gli aggiornamenti (Changelog) */
+    .updates-box {
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(4px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 12px;
+      padding: 8px 10px;
+      text-align: left;
+      color: #ffffff;
+    }
+
+    .updates-title {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #ffb6c1;
+      margin-bottom: 2px;
+    }
+
+    .updates-text {
+      font-size: 0.8rem;
+      font-weight: 600;
+      line-height: 1.2;
     }
 
     .enter-btn {
@@ -118,9 +143,9 @@
       background: #ffffff;
       color: #111111;
       border: none;
-      border-radius: 16px;
-      padding: 12px;
-      font-size: 1rem;
+      border-radius: 14px;
+      padding: 10px;
+      font-size: 0.95rem;
       font-weight: 800;
       text-decoration: none;
       box-shadow: 0 0 15px rgba(255, 255, 255, 0.9);
@@ -132,37 +157,43 @@
       background: #f0f0f3;
     }
 
-    /* Ottimizzazione per smartphone (schermi piccoli) */
+    /* Ottimizzazione per smartphone */
     @media (max-width: 600px) {
-      body {
-        padding: 10px;
-      }
-
       .scene-wrapper {
         height: 360px;
-        max-width: 100%;
       }
 
       .splash-card {
-        width: 260px;
-        height: 180px;
-        padding: 20px 15px;
-        gap: 18px;
+        width: 270px;
+        height: 220px;
+        padding: 18px 14px;
         border-radius: 22px;
         border-width: 2px;
       }
 
       .splash-title {
-        font-size: 1.8rem;
+        font-size: 1.6rem;
+      }
+
+      .updates-box {
+        padding: 6px 8px;
+      }
+
+      .updates-title {
+        font-size: 0.7rem;
+      }
+
+      .updates-text {
+        font-size: 0.75rem;
       }
 
       .enter-btn {
-        padding: 10px;
-        font-size: 0.9rem;
-        border-radius: 12px;
+        padding: 8px;
+        font-size: 0.85rem;
+        border-radius: 10px;
       }
 
-      /* Riduciamo leggermente le dimensioni dei timbri su mobile per evitare che coprano troppo il centro */
+      /* Timbri rimpiccioliti per mobile */
       .stamp-1  { width: 42px; top: 25px; left: 25px; }
       .stamp-2  { width: 46px; top: 20px; left: 110px; }
       .stamp-3  { width: 38px; top: 25px; right: 30px; }
@@ -204,6 +235,13 @@
 
     <div class="splash-card">
       <h1 class="splash-title">COSMIC-S</h1>
+      
+      <!-- Sezione aggiornamenti: modifica qui il testo ogni volta che aggiorni il sito -->
+      <div class="updates-box">
+        <div class="updates-title">What's New:</div>
+        <div class="updates-text">Added new stamps inspired by 1776! ✨</div>
+      </div>
+
       <a href="https://seea-star.github.io/Cosmic-S-Home/" class="enter-btn">ENTER →</a>
     </div>
   </div>
