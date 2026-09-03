@@ -25,9 +25,37 @@
       justify-content: center;
       align-items: center;
       padding: 15px;
-      overflow-x: hidden;
+      overflow: hidden; /* Blocca le barre di scorrimento, i timbri si adattano allo schermo visibile */
+      position: relative;
     }
 
+    /* I timbri adesso si sparpagliano su tutto il viewport del browser usando coordinate percentuali */
+    .stamp-sticker {
+      position: absolute;
+      height: auto;
+      z-index: 1;
+      pointer-events: none;
+      filter: drop-shadow(2px 2px 3px rgba(0,0,0,0.25));
+    }
+
+    /* Posizioni distribuite su tutto lo spazio libero dello schermo (bordi e angoli esterni) */
+    .stamp-1  { width: 55px; top: 8%; left: 6%; transform: rotate(-12deg); }
+    .stamp-2  { width: 62px; top: 5%; left: 35%; transform: rotate(8deg); }
+    .stamp-3  { width: 50px; top: 7%; right: 8%; transform: rotate(14deg); }
+    .stamp-4  { width: 65px; top: 40%; left: 3%; transform: rotate(18deg); }
+    .stamp-5  { width: 52px; top: 32%; right: 4%; transform: rotate(-15deg); }
+    .stamp-6  { width: 58px; bottom: 8%; left: 7%; transform: rotate(-8deg); }
+    .stamp-7  { width: 48px; bottom: 6%; left: 42%; transform: rotate(12deg); }
+    .stamp-8  { width: 60px; bottom: 8%; right: 7%; transform: rotate(-10deg); }
+    .stamp-9  { width: 54px; top: 20%; left: 4%; transform: rotate(5deg); }
+    .stamp-10 { width: 58px; top: 22%; right: 5%; transform: rotate(-6deg); }
+    .stamp-11 { width: 50px; bottom: 22%; left: 5%; transform: rotate(-14deg); }
+    .stamp-12 { width: 56px; bottom: 20%; right: 6%; transform: rotate(16deg); }
+    .stamp-13 { width: 62px; top: 3%; left: 58%; transform: rotate(-4deg); }
+    .stamp-14 { width: 48px; bottom: 4%; left: 55%; transform: rotate(7deg); }
+    .stamp-15 { width: 55px; top: 65%; right: 4%; transform: rotate(-11deg); }
+
+    /* Contenitore centrale del quaderno e della card */
     .scene-wrapper {
       position: relative;
       width: 100%;
@@ -36,6 +64,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      z-index: 2;
     }
 
     .notebook-bg {
@@ -46,39 +75,6 @@
       filter: none;
       box-shadow: none;
     }
-
-    /* Animazione di movimento fluttuante per i timbri */
-    @keyframes floatAround {
-      0% { transform: translateY(0px) rotate(var(--rot)); }
-      50% { transform: translateY(-6px) translateX(4px) rotate(calc(var(--rot) + 2deg)); }
-      100% { transform: translateY(0px) rotate(var(--rot)); }
-    }
-
-    .stamp-sticker {
-      position: absolute;
-      height: auto;
-      z-index: 3;
-      pointer-events: none;
-      filter: drop-shadow(2px 2px 3px rgba(0,0,0,0.25));
-      animation: floatAround 4s ease-in-out infinite;
-    }
-
-    /* Assegniamo rotazioni base e tempistiche leggermente diverse per ogni timbro così non si muovono all'unisono */
-    .stamp-1  { width: 55px; top: 35px; left: 45px; --rot: -12deg; animation-duration: 4.2s; }
-    .stamp-2  { width: 62px; top: 30px; left: 160px; --rot: 8deg; animation-duration: 3.8s; }
-    .stamp-3  { width: 50px; top: 35px; right: 50px; --rot: 14deg; animation-duration: 4.5s; }
-    .stamp-4  { width: 65px; top: 155px; left: 25px; --rot: 18deg; animation-duration: 5.0s; }
-    .stamp-5  { width: 52px; top: 120px; right: 25px; --rot: -15deg; animation-duration: 3.6s; }
-    .stamp-6  { width: 58px; bottom: 40px; left: 40px; --rot: -8deg; animation-duration: 4.1s; }
-    .stamp-7  { width: 48px; bottom: 45px; left: 150px; --rot: 12deg; animation-duration: 4.7s; }
-    .stamp-8  { width: 60px; bottom: 40px; right: 45px; --rot: -10deg; animation-duration: 3.9s; }
-    .stamp-9  { width: 54px; top: 75px; left: 15px; --rot: 5deg; animation-duration: 4.3s; }
-    .stamp-10 { width: 58px; top: 80px; right: 15px; --rot: -6deg; animation-duration: 4.9s; }
-    .stamp-11 { width: 50px; bottom: 85px; left: 20px; --rot: -14deg; animation-duration: 3.7s; }
-    .stamp-12 { width: 56px; bottom: 80px; right: 20px; --rot: 16deg; animation-duration: 4.4s; }
-    .stamp-13 { width: 62px; top: 5px; left: 260px; --rot: -4deg); animation-duration: 4.6s; }
-    .stamp-14 { width: 48px; bottom: 10px; left: 250px; --rot: 7deg; animation-duration: 3.5s; }
-    .stamp-15 { width: 55px; top: 180px; right: 15px; --rot: -11deg; animation-duration: 4.8s; }
 
     .splash-card {
       position: absolute;
@@ -140,7 +136,7 @@
       background: #f0f0f3;
     }
 
-    /* Post-it interattivo con il colore F3EEDA */
+    /* Post-it interattivo (colore F3EEDA) */
     .update-postit {
       position: absolute;
       top: 35px;
@@ -272,25 +268,42 @@
         padding: 10px;
       }
 
-      .stamp-1  { width: 42px; top: 25px; left: 25px; }
-      .stamp-2  { width: 46px; top: 20px; left: 110px; }
-      .stamp-3  { width: 38px; top: 25px; right: 30px; }
-      .stamp-4  { width: 48px; top: 130px; left: 15px; }
-      .stamp-5  { width: 40px; top: 100px; right: 15px; }
-      .stamp-6  { width: 44px; bottom: 25px; left: 25px; }
-      .stamp-7  { width: 38px; bottom: 30px; left: 105px; }
-      .stamp-8  { width: 45px; bottom: 25px; right: 25px; }
-      .stamp-9  { width: 40px; top: 60px; left: 10px; }
-      .stamp-10 { width: 42px; top: 65px; right: 10px; }
-      .stamp-11 { width: 38px; bottom: 65px; left: 12px; }
-      .stamp-12 { width: 42px; bottom: 60px; right: 12px; }
-      .stamp-13 { width: 46px; top: 5px; left: 180px; }
-      .stamp-14 { width: 38px; bottom: 5px; left: 170px; }
-      .stamp-15 { width: 42px; top: 150px; right: 10px; }
+      /* Timbri adattati per schermi stretti/smartphone */
+      .stamp-1  { width: 40px; top: 4%; left: 3%; }
+      .stamp-2  { width: 44px; top: 3%; left: 30%; }
+      .stamp-3  { width: 38px; top: 4%; right: 4%; }
+      .stamp-4  { width: 45px; top: 42%; left: 1%; }
+      .stamp-5  { width: 40px; top: 38% ; right: 1%; }
+      .stamp-6  { width: 42px; bottom: 4%; left: 3%; }
+      .stamp-7  { width: 38px; bottom: 3%; left: 35%; }
+      .stamp-8  { width: 44px; bottom: 4%; right: 3%; }
+      .stamp-9  { width: 38px; top: 15%; left: 2%; }
+      .stamp-10 { width: 40px; top: 16%; right: 2%; }
+      .stamp-11 { width: 38px; bottom: 16%; left: 2%; }
+      .stamp-12 { width: 40px; bottom: 15%; right: 2%; }
+      .stamp-13 { width: 44px; top: 2%; left: 55%; }
+      .stamp-14 { width: 38px; bottom: 2%; left: 52%; }
+      .stamp-15 { width: 40px; top: 72% ; right: 2%; }
     }
   </style>
 </head>
 <body>
+
+  <img src="./stamp-1.png" alt="Stamp 1" class="stamp-sticker stamp-1">
+  <img src="./stamp-2.png" alt="Stamp 2" class="stamp-sticker stamp-2">
+  <img src="./stamp-3.png" alt="Stamp 3" class="stamp-sticker stamp-3">
+  <img src="./stamp-4.png" alt="Stamp 4" class="stamp-sticker stamp-4">
+  <img src="./stamp-5.png" alt="Stamp 5" class="stamp-sticker stamp-5">
+  <img src="./stamp-6.png" alt="Stamp 6" class="stamp-sticker stamp-6">
+  <img src="./stamp-7.png" alt="Stamp 7" class="stamp-sticker stamp-7">
+  <img src="./stamp-8.png" alt="Stamp 8" class="stamp-sticker stamp-8">
+  <img src="./stamp-9.png" alt="Stamp 9" class="stamp-sticker stamp-9">
+  <img src="./stamp-10.png" alt="Stamp 10" class="stamp-sticker stamp-10">
+  <img src="./stamp-11.png" alt="Stamp 11" class="stamp-sticker stamp-11">
+  <img src="./stamp-12.png" alt="Stamp 12" class="stamp-sticker stamp-12">
+  <img src="./stamp-13.png" alt="Stamp 13" class="stamp-sticker stamp-13">
+  <img src="./stamp-14.png" alt="Stamp 14" class="stamp-sticker stamp-14">
+  <img src="./stamp-15.png" alt="Stamp 15" class="stamp-sticker stamp-15">
 
   <div class="scene-wrapper">
     <img src="./notebook-spread.png" alt="Notebook Background" class="notebook-bg">
@@ -307,22 +320,6 @@
         </div>
       </div>
     </div>
-
-    <img src="./stamp-1.png" alt="Stamp 1" class="stamp-sticker stamp-1">
-    <img src="./stamp-2.png" alt="Stamp 2" class="stamp-sticker stamp-2">
-    <img src="./stamp-3.png" alt="Stamp 3" class="stamp-sticker stamp-3">
-    <img src="./stamp-4.png" alt="Stamp 4" class="stamp-sticker stamp-4">
-    <img src="./stamp-5.png" alt="Stamp 5" class="stamp-sticker stamp-5">
-    <img src="./stamp-6.png" alt="Stamp 6" class="stamp-sticker stamp-6">
-    <img src="./stamp-7.png" alt="Stamp 7" class="stamp-sticker stamp-7">
-    <img src="./stamp-8.png" alt="Stamp 8" class="stamp-sticker stamp-8">
-    <img src="./stamp-9.png" alt="Stamp 9" class="stamp-sticker stamp-9">
-    <img src="./stamp-10.png" alt="Stamp 10" class="stamp-sticker stamp-10">
-    <img src="./stamp-11.png" alt="Stamp 11" class="stamp-sticker stamp-11">
-    <img src="./stamp-12.png" alt="Stamp 12" class="stamp-sticker stamp-12">
-    <img src="./stamp-13.png" alt="Stamp 13" class="stamp-sticker stamp-13">
-    <img src="./stamp-14.png" alt="Stamp 14" class="stamp-sticker stamp-14">
-    <img src="./stamp-15.png" alt="Stamp 15" class="stamp-sticker stamp-15">
 
     <div class="splash-card">
       <h1 class="splash-title">COSMIC-S</h1>
