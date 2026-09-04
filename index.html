@@ -118,30 +118,45 @@
       background: #f0f0f3;
     }
 
-    /* Timbri */
+    /* Animazione di flottamento (floating) */
+    @keyframes floatStamps {
+      0% {
+        transform: translateY(0px) rotate(var(--base-rot));
+      }
+      50% {
+        transform: translateY(-6px) rotate(calc(var(--base-rot) + 2deg));
+      }
+      100% {
+        transform: translateY(0px) rotate(var(--base-rot));
+      }
+    }
+
+    /* Timbri (ingranditi leggermente, con posizioni e scambi di posto, e animati) */
     .stamp-sticker {
       position: absolute;
       height: auto;
       z-index: 5;
       pointer-events: none;
-      filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.3));
+      filter: drop-shadow(3px 3px 6px rgba(0,0,0,0.35));
+      animation: floatStamps 4s ease-in-out infinite;
     }
 
-    .stamp-1  { width: 52px; top: 10%; left: 16%; transform: rotate(-14deg); }
-    .stamp-2  { width: 70px; top: 8%; left: 32%; transform: rotate(10deg); }
-    .stamp-3  { width: 58px; top: 10%; right: 18%; transform: rotate(16deg); }
-    .stamp-4  { width: 78px; top: 44%; left: 10%; transform: rotate(20deg); }
-    .stamp-5  { width: 62px; top: 42%; right: 10%; transform: rotate(-18deg); }
-    .stamp-6  { width: 66px; bottom: 12%; left: 15%; transform: rotate(-10deg); }
-    .stamp-7  { width: 58px; bottom: 18%; left: 40%; transform: rotate(14deg); }
-    .stamp-8  { width: 74px; bottom: 12%; right: 15%; transform: rotate(-12deg); }
-    .stamp-21 { width: 58px; top: 28%; left: 13%; transform: rotate(6deg); }
-    .stamp-22 { width: 66px; top: 28%; right: 13%; transform: rotate(-8deg); }
-    .stamp-23 { width: 52px; bottom: 28%; left: 15%; transform: rotate(-16deg); }
-    .stamp-24 { width: 62px; bottom: 26%; right: 15%; transform: rotate(18deg); }
-    .stamp-25 { width: 84px; top: 14%; left: 44%; transform: rotate(-5deg); }
-    .stamp-26 { width: 46px; bottom: 8%; left: 50%; transform: rotate(9deg); }
-    .stamp-27 { width: 64px; bottom: 22%; right: 41%; transform: rotate(-13deg); }
+    /* Tempi di animazione sfasati per non farli muovere tutti insieme */
+    .stamp-1  { width: 64px;  top: 6%;   left: 24%;   --base-rot: 8deg;     animation-delay: 0s; }
+    .stamp-2  { width: 84px;  top: 38%;  left: 3%;    --base-rot: -12deg;   animation-delay: 0.5s; }
+    .stamp-3  { width: 72px;  bottom: 8%; left: 35%;  --base-rot: 14deg;    animation-delay: 1s; }
+    .stamp-4  { width: 92px;  top: 12%;  right: 12%;  --base-rot: -16deg;   animation-delay: 1.5s; }
+    .stamp-5  { width: 76px;  bottom: 8%; right: 22%; --base-rot: 10deg;    animation-delay: 2s; }
+    .stamp-6  { width: 80px;  top: 40%;  right: 4%;   --base-rot: -8deg;    animation-delay: 2.5s; }
+    .stamp-7  { width: 70px;  top: 14%;  left: 6%;    --base-rot: 18deg;    animation-delay: 0.3s; }
+    .stamp-8  { width: 88px;  bottom: 12%; left: 8%;  --base-rot: -14deg;   animation-delay: 0.8s; }
+    .stamp-21 { width: 70px;  top: 26%;  left: 10%;   --base-rot: -6deg;    animation-delay: 1.2s; }
+    .stamp-22 { width: 80px;  top: 28%;  right: 11%;  --base-rot: 12deg;    animation-delay: 1.7s; }
+    .stamp-23 { width: 64px;  bottom: 24%; left: 14%; --base-rot: 16deg;    animation-delay: 2.2s; }
+    .stamp-24 { width: 76px;  bottom: 22%; right: 13%; --base-rot: -18deg;  animation-delay: 0.4s; }
+    .stamp-25 { width: 100px; top: 4%;    left: 42%;   --base-rot: 5deg;     animation-delay: 0.9s; }
+    .stamp-26 { width: 56px;  bottom: 4%; left: 48%;  --base-rot: -9deg;    animation-delay: 1.4s; }
+    .stamp-27 { width: 78px;  bottom: 30%; right: 38%; --base-rot: 13deg;   animation-delay: 1.9s; }
 
     /* Ottimizzazione per smartphone */
     @media (max-width: 600px) {
@@ -173,21 +188,21 @@
         font-size: 0.85rem;
       }
 
-      .stamp-1  { width: 38px; top: 15%; left: 12%; }
-      .stamp-2  { width: 50px; top: 12%; left: 28%; }
-      .stamp-3  { width: 40px; top: 14%; right: 12%; }
-      .stamp-4  { width: 54px; top: 43%; left: 6%; }
-      .stamp-5  { width: 44px; top: 40%; right: 6%; }
-      .stamp-6  { width: 48px; bottom: 15%; left: 10%; }
-      .stamp-7  { width: 42px; bottom: 20%; left: 35%; }
-      .stamp-8  { width: 52px; bottom: 15%; right: 10%; }
-      .stamp-21 { width: 40px; top: 27%; left: 9%; }
-      .stamp-22 { width: 48px; top: 27%; right: 9%; }
-      .stamp-23 { width: 38px; bottom: 27%; left: 10%; }
-      .stamp-24 { width: 44px; bottom: 25%; right: 10%; }
-      .stamp-25 { width: 58px; top: 16%; left: 40%; }
-      .stamp-26 { width: 34px; bottom: 10%; left: 45%; }
-      .stamp-27 { width: 46px; bottom: 23%; right: 36%; }
+      .stamp-1  { width: 48px;  top: 8%;   left: 18%; }
+      .stamp-2  { width: 60px;  top: 36%;  left: 4%; }
+      .stamp-3  { width: 52px;  bottom: 10%; left: 30%; }
+      .stamp-4  { width: 64px;  top: 10%;  right: 8%; }
+      .stamp-5  { width: 54px;  bottom: 10%; right: 16%; }
+      .stamp-6  { width: 58px;  top: 38%;  right: 4%; }
+      .stamp-7  { width: 50px;  top: 12%;  left: 6%; }
+      .stamp-8  { width: 62px;  bottom: 12%; left: 6%; }
+      .stamp-21 { width: 50px;  top: 25%;  left: 8%; }
+      .stamp-22 { width: 58px;  top: 25%;  right: 8%; }
+      .stamp-23 { width: 46px;  bottom: 22%; left: 10%; }
+      .stamp-24 { width: 54px;  bottom: 20%; right: 10%; }
+      .stamp-25 { width: 70px;  top: 4%;    left: 38%; }
+      .stamp-26 { width: 40px;  bottom: 6%; left: 44%; }
+      .stamp-27 { width: 56px;  bottom: 26%; right: 34%; }
     }
   </style>
 </head>
