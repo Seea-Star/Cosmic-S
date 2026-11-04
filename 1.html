@@ -10,10 +10,15 @@
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@600;700;800&display=swap" rel="stylesheet">
 
   <style>
-    /* COLLEGAMENTO DEL FONT DALLA TUA REPOSITORY GITHUB */
+    /* COLLEGAMENTO DEI FONT DALLA TUA REPOSITORY GITHUB */
     @font-face {
       font-family: 'Starshines';
       src: url('https://seea-star.github.io/Fonts/Starshines.otf') format('opentype');
+    }
+
+    @font-face {
+      font-family: 'PapernotesRegular';
+      src: url('https://seea-star.github.io/Fonts/Papernotes.otf') format('opentype');
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -105,7 +110,9 @@
       text-shadow: 0 0 14px rgba(255,255,255,1), 0 0 28px rgba(255,255,255,0.8), 0 0 40px rgba(255,255,255,0.4);
     }
 
+    /* Pulsante con il font Papernotes Regular applicato al testo */
     .enter-btn {
+      font-family: 'PapernotesRegular', sans-serif;
       display: block;
       width: 100%;
       background: #ffffff;
@@ -113,8 +120,8 @@
       border: none;
       border-radius: 16px;
       padding: 12px;
-      font-size: 1rem;
-      font-weight: 800;
+      font-size: 1.15rem;
+      font-weight: bold;
       text-decoration: none;
       box-shadow: 0 0 15px rgba(255, 255, 255, 0.9);
       transition: all 0.15s ease;
@@ -192,7 +199,7 @@
 
       .enter-btn {
         padding: 9px;
-        font-size: 0.85rem;
+        font-size: 1rem;
       }
 
       .stamp-1  { width: 48px;  top: 8%;   left: 18%; }
