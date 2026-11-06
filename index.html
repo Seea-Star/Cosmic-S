@@ -4,23 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>COSMIC-S</title>
+  <link rel="icon" type="image/png" href="https://cosmic-seea.neocities.org/stamp-5.png">
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@600;700;800&display=swap" rel="stylesheet">
 
   <style>
-    /* COLLEGAMENTO DEI FONT DALLA TUA REPOSITORY GITHUB */
-    @font-face {
-      font-family: 'Starshines';
-      src: url('https://seea-star.github.io/Fonts/Starshines.otf') format('opentype');
-    }
-
-    @font-face {
-      font-family: 'PapernotesRegular';
-      src: url('https://seea-star.github.io/Fonts/Papernotes.otf') format('opentype');
-    }
-
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
@@ -40,6 +30,11 @@
       position: relative;
     }
 
+@font-face {
+      font-family: 'Starshines';
+      src: url('https://seea-star.github.io/Fonts/Starshines.otf') format('opentype');
+    }
+    
     .scene-wrapper {
       position: relative;
       width: 820px;
@@ -92,6 +87,7 @@
     }
 
     .card-main-view {
+      font-family: 'Starshines', sans-serif;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -99,20 +95,17 @@
       width: 100%;
     }
 
-    /* Nome del sito con il font Starshines applicato */
+    /* Nome del sito leggermente più grande e con un glow più intenso */
     .splash-title {
-      font-family: 'Starshines', sans-serif;
-      font-size: 2.5rem;
-      font-weight: normal;
+      font-size: 2.7rem;
+      font-weight: 800;
       letter-spacing: 2px;
       color: #ffffff;
       line-height: 1;
       text-shadow: 0 0 14px rgba(255,255,255,1), 0 0 28px rgba(255,255,255,0.8), 0 0 40px rgba(255,255,255,0.4);
     }
 
-    /* Pulsante con il font Papernotes Regular applicato al testo */
     .enter-btn {
-      font-family: 'PapernotesRegular', sans-serif;
       display: block;
       width: 100%;
       background: #ffffff;
@@ -120,8 +113,8 @@
       border: none;
       border-radius: 16px;
       padding: 12px;
-      font-size: 1.15rem;
-      font-weight: bold;
+      font-size: 1rem;
+      font-weight: 800;
       text-decoration: none;
       box-shadow: 0 0 15px rgba(255, 255, 255, 0.9);
       transition: all 0.15s ease;
@@ -170,7 +163,7 @@
     .stamp-24 { width: 76px;  bottom: 22%; right: 13%; --base-rot: -18deg;  animation-delay: 0.4s; }
     .stamp-25 { width: 100px; top: 4%;    left: 42%;   --base-rot: 5deg;     animation-delay: 0.9s; }
     .stamp-26 { width: 56px;  bottom: 4%; left: 48%;  --base-rot: -9deg;    animation-delay: 1.4s; }
-    .stamp-27 { width: 78px;  bottom: 30%; right: 38%; --base-rot: 13deg;   animation-delay: 1.9s; }
+    .stamp-27 { width: 78px;  bottom: 14%; right: 38%; --base-rot: 13deg;   animation-delay: 1.9s; } /* Spostato più in basso */
 
     /* Ottimizzazione per smartphone */
     @media (max-width: 600px) {
@@ -194,12 +187,12 @@
       }
 
       .splash-title {
-        font-size: 1.9rem;
+        font-size: 2.1rem;
       }
 
       .enter-btn {
         padding: 9px;
-        font-size: 1rem;
+        font-size: 0.85rem;
       }
 
       .stamp-1  { width: 48px;  top: 8%;   left: 18%; }
@@ -216,7 +209,7 @@
       .stamp-24 { width: 54px;  bottom: 20%; right: 10%; }
       .stamp-25 { width: 70px;  top: 4%;    left: 38%; }
       .stamp-26 { width: 40px;  bottom: 6%; left: 44%; }
-      .stamp-27 { width: 56px;  bottom: 26%; right: 34%; }
+      .stamp-27 { width: 56px;  bottom: 12%; right: 34%; } /* Spostato più in basso anche su mobile */
     }
   </style>
 </head>
@@ -244,7 +237,7 @@
     <div class="splash-card">
       <div class="card-main-view" id="mainView">
         <h1 class="splash-title">COSMIC-S</h1>
-        <a href="https://seea-star.github.io/Cosmic-S-Home/" class="enter-btn">ENTER -></a>
+        <a href="https://cosmic-seea.neocities.org/Home" class="enter-btn">ENTER -></a>
       </div>
     </div>
   </div>
